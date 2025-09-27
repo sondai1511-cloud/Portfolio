@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Kỹ Thuật Nội thất</title>
+    <!-- Tải Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Cấu hình Font và Chủ đề -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f7f7; /* Nền xám nhạt */
+            color: #333;
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 8px;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            bottom: 0;
+            left: 0;
+            background-color: #4A2E1C; /* Nâu Chocolate Đậm - Accent chính */
+            border-radius: 9999px;
+        }
+        /* Custom scrollbar for better look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e0e0e0;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #A0522D; /* Màu Nâu Đất */
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- Tên Portfolio -->
+            <h1 class="text-2xl font-bold text-[#4A2E1C]">PORTFOLIO</h1>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#gioithieu" class="text-gray-600 hover:text-[#C38F6A] transition duration-300 font-medium">Giới Thiệu</a>
+                <a href="#kynang" class="text-gray-600 hover:text-[#C38F6A] transition duration-300 font-medium">Kỹ Năng</a>
+                <a href="#duan" class="text-gray-600 hover:text-[#C38F6A] transition duration-300 font-medium">Dự Án</a>
+                <a href="#lienhe" class="text-gray-600 hover:text-[#C38F6A] transition duration-300 font-medium">Liên Hệ</a>
+            </nav>
+            <button id="menu-button" class="md:hidden text-gray-600 hover:text-[#C38F6A]">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile Menu (Ẩn ban đầu) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white px-4 pt-2 pb-4 space-y-2">
+            <a href="#gioithieu" class="block text-gray-600 hover:text-[#C38F6A] font-medium" onclick="toggleMenu()">Giới Thiệu</a>
+            <a href="#kynang" class="block text-gray-600 hover:text-[#C38F6A] font-medium" onclick="toggleMenu()">Kỹ Năng</a>
+            <a href="#duan" class="block text-gray-600 hover:text-[#C38F6A] font-medium" onclick="toggleMenu()">Dự Án</a>
+            <a href="#lienhe" class="block text-gray-600 hover:text-[#C38F6A] font-medium" onclick="toggleMenu()">Liên Hệ</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+        <!-- 1. GIỚI THIỆU (Hero Section) -->
+        <section id="gioithieu" class="mb-20 pt-16 -mt-16 bg-white p-6 sm:p-10 rounded-xl shadow-lg">
+            <div class="flex flex-col lg:flex-row items-center gap-8">
+                <div class="lg:w-2/3">
+                    <p class="text-xl text-gray-500 mb-2">Xin chào, tôi là Đại</p>
+                    <h2 class="text-4xl sm:text-5xl font-extrabold text-[#4A2E1C] mb-4 leading-tight">
+                        KỸ SƯ KỸ NGHỆ GỖ & NỘI THẤT
+                    </h2>
+                    <p class="text-lg text-gray-700 mb-6">
+                        Là một tân kỹ sư với kiến thức nền tảng và kỹ năng thực hành tốt các phầm mềm Autocad, Inventor, SketchUp,... tôi xem mỗi bản vẽ là một cơ hội để học hỏi và hoàn thiện. Từ những thử thách của đồ án tốt nghiệp đến những yêu cầu thực tế trong thời gian thực tập, Portfolio này là nhật ký cho quá trình phát triển, cho thấy những gì tôi học được và những sản phẩm đã làm.
+                    </p>
+                    <!-- Nút Tải CV - ĐÃ CẬP NHẬT: Trỏ trực tiếp đến file PDF và dùng thuộc tính 'download' -->
+                    <a href="CV Vo Son Dai.pdf" 
+                       download 
+                       class="inline-block bg-[#A0522D] hover:bg-[#4A2E1C] text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300">
+                        Tải CV (PDF)
+                    </a>
+                </div>
+                <!-- Khu vực ảnh đại diện -->
+                <div class="lg:w-1/3 flex justify-center">
+                    <div class="w-48 h-48 bg-gray-200 rounded-full flex items-center justify-center border-4 border-[#C38F6A] overflow-hidden">
+                        <!-- ẢNH ĐẠI DIỆN -->
+                        <img src="z7052022681864_d0efd9d7dab20b5a638a4a8b767a9b2b.jpg" 
+                             alt="Ảnh đại diện của Đại" 
+                             class="w-full h-full object-cover rounded-full" 
+                             onerror="this.onerror=null;this.src='https://placehold.co/192x192/C38F6A/ffffff?text=Ảnh+Đại+Diện';" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. KỸ NĂNG (Skills Section) -->
+        <section id="kynang" class="mb-20 pt-16 -mt-16">
+            <h3 class="text-3xl font-bold mb-8 section-title text-[#333]">Kỹ Năng Chuyên Môn</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Kỹ năng Phần mềm -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-[#C38F6A]">
+                    <h4 class="text-xl font-semibold mb-3 text-[#4A2E1C]">Kỹ Năng Sử Dụng Phần Mềm</h4>
+                    <ul class="space-y-2 text-gray-700 list-none pl-0">
+                        <li class="flex items-start">
+                            <span class="mr-2 text-[#A0522D] font-bold">•</span> 
+                            AutoCAD: Thành thạo kỹ năng dựng khối 3D, lập bản vẽ kỹ thuật 2D, hướng dẫn lắp ráp (AI).
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-2 text-[#A0522D] font-bold">•</span> 
+                            Inventor: Khả năng dựng hình 3D chi tiết, lắp ráp sản phẩm, tạo lập và trình bày một bản vẽ hoàn chỉnh.
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-2 text-[#A0522D] font-bold">•</span> 
+                            SketchUp & V-Ray: Khả năng dựng mô hình và tạo hình ảnh render cơ bản.
+                        </li>
+                    </ul>
+                </div>
+                <!-- Kỹ năng Chuyên môn sâu -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-[#C38F6A]">
+                    <h4 class="text-xl font-semibold mb-3 text-[#4A2E1C]">Kiến Thức Chuyên Ngành</h4>
+                    <ul class="space-y-2 text-gray-700 list-none pl-0">
+                        <li class="flex items-start">
+                            <span class="mr-2 text-[#A0522D] font-bold">•</span> 
+                            Được đào tạo và có kiến thức về các loại vật liệu gỗ và quy trình sản xuất đồ gỗ.
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-2 text-[#A0522D] font-bold">•</span> 
+                            Khả năng đọc hiểu bản vẽ kỹ thuật chi tiết và bản vẽ lắp ráp.
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-2 text-[#A0522D] font-bold">•</span> 
+                            Kỹ năng làm bản vẽ hướng dẫn lắp ráp (AI) chi tiết.
+                        </li>
+                    </ul>
+                </div>
+                <!-- Kỹ năng Khác -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-[#C38F6A]">
+                    <h4 class="text-xl font-semibold mb-3 text-[#4A2E1C]">Kỹ Năng Mềm</h4>
+                    <ul class="space-y-2 text-gray-700 list-none pl-0">
+                        <li class="flex items-start">
+                            <span class="mr-2 text-[#A0522D] font-bold">•</span> 
+                            Tinh thần cầu tiến, sự cẩn thận, tỉ mỉ và tập trung trong công việc.
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-2 text-[#A0522D] font-bold">•</span> 
+                            Khả năng làm việc nhóm và giao tiếp tốt.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. DỰ ÁN (Projects Section) -->
+        <section id="duan" class="mb-20 pt-16 -mt-16">
+            <h3 class="text-3xl font-bold mb-8 section-title text-[#333]">Các Dự Án Trọng Tâm</h3>
+
+            <!-- Dự án 1: Đồ án Tốt nghiệp (Ghế Gỗ Uốn Cong) -->
+            <div class="bg-white p-6 sm:p-8 rounded-xl shadow-lg mb-10">
+                <h4 class="text-2xl font-bold text-[#4A2E1C] mb-2">Đồ án Tốt nghiệp: Thiết Kế Và Chế Tạo Ghế Thư Giãn Sử Dụng Gỗ Uốn Cong</h4>
+                <p class="text-sm text-gray-500 mb-6 font-semibold">Vai trò: Thiết kế, lập bản vẽ | Công cụ: Inventor</p>
+                
+                <p class="text-gray-700 mb-6">
+                    Đồ án tập trung vào việc nghiên cứu và ứng dụng kỹ thuật uốn cong gỗ vào chế tạo ghế thư giãn. Được phân công phụ trách phần thiết kế và bản vẽ, từ phác thảo ban đầu, tính toán kích thước đến dựng mô hình 3D, lập bản vẽ chi tiết, bản vẽ AI, tất cả đều được em thực hiện bằng Inventor và điều chỉnh bản vẽ sau mỗi lần làm mẫu, đảm bảo tối ưu quy trình chế tạo.
+                </p>
+
+                <!-- Khu vực Bản vẽ Kỹ thuật & Mô hình 3D -->
+                <div class="flex flex-col gap-6 mb-6">
+                    <!-- Hàng 1: Ảnh lớn - Bản vẽ 3 hình chiếu -->
+                    <div class="bg-gray-100 p-4 rounded-lg">
+                        <h5 class="font-semibold text-lg mb-2 text-[#4A2E1C]">Bản Vẽ Kỹ Thuật</h5>
+                        <img src="TAP BAN VE - KNG02 - THIẾT KẾ VÀ CHẾ TẠO GHẾ THƯ GIÃN SỬ DỤNG GỖ UỐN CONG-hình ảnh-2.jpg" 
+                             alt="Bản vẽ 3 hình chiếu của ghế gỗ uốn cong" 
+                             class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition" 
+                             onerror="this.onerror=null;this.src='https://placehold.co/1000x500/e0e0e0/333333?text=Bản+Vẽ+Kỹ+Thuật+3+Hình+Chiếu';" />
+                        <p class="text-sm text-gray-500 mt-2">Bản vẽ chi tiết các hình chiếu</p>
+                    </div>
+
+                    <!-- Hàng 2: Hai ảnh nhỏ hàng ngang -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Ảnh 1: Mô hình 3D Inventor -->
+                        <div class="bg-gray-100 p-4 rounded-lg flex flex-col">
+                            <h5 class="font-semibold text-lg mb-2 text-[#4A2E1C]">Mô Hình 3D (Inventor)</h5>
+                            <img src="Screenshot 2025-09-27 124647.png" 
+                                 alt="Mô hình 3D ghế thư giãn trong Inventor" 
+                                 class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition aspect-video object-contain" 
+                                 onerror="this.onerror=null;this.src='https://placehold.co/400x250/d5c4b4/333333?text=Mô+Hình+3D+Inventor';" />
+                            <p class="text-sm text-gray-500 mt-2">Mô hình 3D được dựng trong Inventor</p>
+                        </div>
+
+                        <!-- Ảnh 2: Sản phẩm đã chế tạo -->
+                        <div class="bg-gray-100 p-4 rounded-lg flex flex-col">
+                            <h5 class="font-semibold text-lg mb-2 text-[#4A2E1C]">Sản Phẩm Thực Tế</h5>
+                            <img src="Ghe Thu Gian.jpg" 
+                                 alt="Hình ảnh sản phẩm ghế thư giãn đã hoàn thành" 
+                                 class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition aspect-video object-contain" 
+                                 onerror="this.onerror=null;this.src='https://placehold.co/400x250/d5c4b4/333333?text=Sản+Phẩm+Thực+Tế';" />
+                            <p class="text-sm text-gray-500 mt-2">Sản phẩm hoàn thiện sau khi chế tạo</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Khu vực Giải thưởng và Tải file -->
+                <div class="mt-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                    
+                    <!-- Giải thưởng -->
+                    <p class="text-base text-gray-700 font-semibold border-l-4 border-yellow-500 pl-3 bg-yellow-50 p-2 rounded-md flex-grow order-1 sm:order-1">
+                        Đồ án này được hội đồng đánh giá cao về tính khả thi, sự tỉ mỉ trong bản vẽ, cũng như sự tâm huyết, nghiêm túc trong nghiên cứu, chế tạo, được điểm cao nhất trong đợt bảo vệ và đạt giải thưởng của khoa.
+                    </p>
+                    
+                    <!-- Nút Tải bản vẽ đầy đủ (PDF) - ĐÃ CẬP NHẬT: Thêm thuộc tính 'download' -->
+                    <a href="TAP BAN VE - KNG02 - THIẾT KẾ VÀ CHẾ TẠO GHẾ THƯ GIÃN SỬ DỤNG GỖ UỐN CONG.pdf" 
+                       download 
+                       class="inline-flex items-center justify-center bg-gray-200 hover:bg-[#C38F6A] hover:text-white text-gray-800 font-medium py-2 px-4 rounded-full transition duration-300 flex-shrink-0 order-2 sm:order-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                        </svg>
+                        Tải Bản Vẽ Đầy Đủ (PDF)
+                    </a>
+                </div>
+            </div>
+
+            <!-- Dự án 2: Kinh nghiệm Thực tập -->
+            <div class="bg-white p-6 sm:p-8 rounded-xl shadow-lg">
+                <h4 class="text-2xl font-bold text-[#4A2E1C] mb-2">Dự án Thực tập: Lập Bản Vẽ Sản Xuất Bàn Làm Việc</h4>
+                <p class="text-sm text-gray-500 mb-4 font-semibold">Vai trò: Thực tập sinh | Công ty: Savimex | Công cụ: AutoCAD</p>
+                
+                <p class="text-gray-700 mb-6">
+                    Với sự giúp đỡ và hướng dẫn nhiệt tình của anh, chị tại Công ty Cổ phần Hợp tác Kinh tế và Xuất nhập khẩu Savimex, tôi đã tham gia vào quá trình thiết kế, dựng mô hình 3D, lập bản vẽ kỹ thuật 2D và tạo bản vẽ hướng dẫn lắp ráp (AI) cho một số sản phẩm dựa trên hình ảnh và kích thước ban đầu của khách hàng. Được các anh chị đánh giá cao về sự nhanh nhẹn, tiếp thu tốt và cơ bản hoàn thành các yêu cầu đặt ra.
+                </p>
+
+                <!-- Khu vực Bản vẽ Kỹ thuật -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-gray-100 p-4 rounded-lg">
+                        <h5 class="font-semibold text-lg mb-2 text-[#4A2E1C]">Mô hình 3D</h5>
+                        <!-- ĐÃ CẬP NHẬT TÊN FILE MỚI -->
+                        <img src="Screenshot 2025-09-27 130626.png" 
+                             alt="Mô hình 3D Bàn làm việc" 
+                             class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition" 
+                             onerror="this.onerror=null;this.src='https://placehold.co/800x450/e0e0e0/333333?text=Mô+Hình+3D+Bàn+Làm+Việc+trong+AutoCAD';" />
+                         <p class="text-sm text-gray-500 mt-2">Mô hình 3D Bàn làm việc (AutoCAD)</p>
+                    </div>
+                    <div class="bg-gray-100 p-4 rounded-lg">
+                        <h5 class="font-semibold text-lg mb-2 text-[#4A2E1C]">Bản vẽ Kỹ thuật</h5>
+                         <img src="1.jpg" 
+                             alt="Bản vẽ kỹ thuật chi tiết các cấu kiện" 
+                             class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition" 
+                             onerror="this.onerror=null;this.src='https://placehold.co/800x450/d5c4b4/333333?text=Bản+Vẽ+Kỹ+Thuật+Chi+Tiết+Mới';" />
+                         <p class="text-sm text-gray-500 mt-2">Bản vẽ kỹ thuật chi tiết</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 4. LIÊN HỆ (Contact Section) -->
+        <section id="lienhe" class="pt-16 -mt-16">
+            <h3 class="text-3xl font-bold mb-8 section-title text-[#333]">Liên Hệ</h3>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 bg-white p-8 rounded-xl shadow-lg">
+                <!-- Thông tin liên hệ -->
+                <div>
+                    <h4 class="text-xl font-semibold mb-3 text-[#4A2E1C]">Thông tin Liên hệ (Võ Sơn Đại)</h4>
+                    <p class="mb-2 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-[#A0522D]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26c.77.51 1.63.74 2.47.74s1.7-.23 2.47-.74L21 8" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 8V6a2 2 0 00-2-2H5a2 2 0 00-2 2v2M21 8v10a2 2 0 01-2 2H5a2 2 0 01-2-2V8" /></svg>
+                        Email: sondai1511@gmail.com
+                    </p>
+                    <p class="mb-2 flex items-center">
+                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-[#A0522D]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18v-6m0 0V8" /></svg>
+                        Điện thoại: 0901097761
+                    </p>
+                    <p class="mb-2 flex items-center">
+                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-[#A0522D]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9A1.998 1.998 0 0110 19V5a2 2 0 012-2h6a2 2 0 012 2v10a2 2 0 01-2 2h-4z" /></svg>
+                        Địa chỉ: Phường Phú Định, TP.HCM
+                    </p>
+                </div>
+
+                <!-- Học vấn -->
+                 <div>
+                    <h4 class="text-xl font-semibold mb-3 text-[#4A2E1C]">Học Vấn</h4>
+                    <div class="border-l-4 border-[#C38F6A] pl-3">
+                        <p class="font-bold text-gray-800">Kỹ sư Kỹ nghệ Gỗ và Nội thất</p>
+                        <p class="text-gray-600">Trường: Đại học Sư phạm Kỹ thuật TPHCM (HCMUTE)</p>
+                        <p class="text-sm text-gray-500">2020 - 2024</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-[#333] text-white py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
+            &copy; 2024 Portfolio Kỹ Thuật Nội Thất | Thiết kế bởi Võ Sơn Đại
+        </div>
+    </footer>
+
+    <!-- JavaScript cho chức năng Mobile Menu -->
+    <script>
+        const menuButton = document.getElementById('menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        menuButton.addEventListener('click', toggleMenu);
+        
+        // Đảm bảo menu đóng khi click vào link trên mobile
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
