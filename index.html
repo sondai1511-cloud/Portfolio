@@ -65,6 +65,9 @@
             max-height: 90%;
             object-fit: contain;
             box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
+            /* Bổ sung để cho phép transform */
+            transform-origin: center center; 
+            transition: transform 0.2s ease-out; /* Transition cho zoom/pan mượt mà */
         }
 
         /* CSS cho ảnh đại diện sticky */
@@ -137,7 +140,7 @@
                     <!-- CẬP NHẬT HIỆU ỨNG HOVER 1.02 -->
                     <p class="text-xl text-gray-500 mb-2 transition duration-300 transform hover:scale-[1.02] origin-center">Xin chào, tôi là Đại</p>
                     
-                    <!-- ĐÃ GIẢM FONT SIZE (text-4xl sm:text-5xl -> text-3xl sm:text-4xl) ĐỂ KHẮC PHỤC LỖI XUỐNG DÒNG -->
+                    <!-- ĐÃ GIẢM FONT SIZE ĐỂ KHẮC PHỤC LỖI XUỐNG DÒNG -->
                     <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1a1a1a] mb-4 leading-tight">
                         KỸ SƯ KỸ NGHỆ GỖ & NỘI THẤT
                     </h2>
@@ -414,7 +417,7 @@
         const lightboxModal = document.getElementById('lightbox-modal');
         const lightboxImage = document.getElementById('lightbox-image');
 
-        // === 1. LOGIC CHO MOBILE MENU VÀ LIGHTBOX (Giữ nguyên) ===
+        // === 1. LOGIC CHO MOBILE MENU VÀ HIỆU ỨNG CUỘN (Giữ nguyên) ===
 
         function toggleMenu() {
             mobileMenu.classList.toggle('hidden');
@@ -432,45 +435,17 @@
             });
         });
 
-        document.querySelectorAll('.open-lightbox').forEach(image => {
-            image.addEventListener('click', (event) => {
-                event.stopPropagation();
-                const imageSrc = image.getAttribute('data-src');
-                lightboxImage.src = imageSrc;
-                lightboxModal.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-            });
-        });
-
-        lightboxModal.addEventListener('click', (event) => {
-            if (event.target === lightboxModal) {
-                lightboxModal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        });
-
-        document.addEventListener('keydown', (event) => {
-            if (event.key === 'Escape' && lightboxModal.style.display === 'flex') {
-                lightboxModal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        });
-
-        // === 2. LOGIC CHO HIỆU ỨNG MỜ DẦN (FADE EFFECT) ===
-        
         const fadeSections = document.querySelectorAll('.fade-section');
         
         const fadeObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 const target = entry.target;
                 
-                // Loại bỏ lớp opacity-0 và thêm opacity-100 để hiện ra (Fade-in)
                 if (entry.isIntersecting) {
                     target.classList.remove('opacity-0');
                     target.classList.add('opacity-100');
                     
                 } else {
-                    // Ẩn đi khi ra khỏi viewport (Fade-out)
                     target.classList.remove('opacity-100');
                     target.classList.add('opacity-0');
                 }
@@ -478,45 +453,35 @@
         }, {
             root: null,
             rootMargin: '0px', 
-            threshold: 0.1 // Kích hoạt ngay khi 10% phần tử vào/ra viewport
+            threshold: 0.1 
         });
 
-        // Áp dụng Observer
         fadeSections.forEach(section => {
-             // Bỏ qua section "gioithieu" khỏi observer vì nó luôn hiển thị
             if (section.id !== 'gioithieu') {
                 fadeObserver.observe(section);
             }
         });
 
-        // === 3. LOGIC CHO HIỆU ỨNG ẢNH ĐẠI DIỆN STICKY (Giữ nguyên) ===
-
+        // Logic ảnh đại diện sticky
         const profileOriginalContainer = document.getElementById('profile-original-container');
         const stickyProfileContainer = document.getElementById('sticky-profile-container');
         const originalImageHTML = profileOriginalContainer ? profileOriginalContainer.querySelector('div').innerHTML : null;
 
         if (originalImageHTML) {
-             // Clone nội dung ảnh vào container sticky
             stickyProfileContainer.innerHTML = originalImageHTML;
-
-            // Lắng nghe sự kiện cuộn
             window.addEventListener('scroll', () => {
-                // Vị trí bottom của container ảnh gốc so với viewport
                 const rect = profileOriginalContainer.getBoundingClientRect();
-                const imageIsAboveHeader = rect.bottom < 50; // 50px là chiều cao header
+                const imageIsAboveHeader = rect.bottom < 50;
 
                 if (imageIsAboveHeader) {
-                    // Kích hoạt ảnh sticky: Chạy lên
                     if (stickyProfileContainer.classList.contains('hidden')) {
                         stickyProfileContainer.classList.remove('hidden', 'opacity-0', 'scale-0');
                         stickyProfileContainer.classList.add('opacity-100', 'scale-100');
                     }
                 } else {
-                    // Ẩn ảnh sticky: Chạy về vị trí cũ
                     if (!stickyProfileContainer.classList.contains('hidden')) {
                         stickyProfileContainer.classList.remove('opacity-100', 'scale-100');
                         stickyProfileContainer.classList.add('opacity-0', 'scale-0');
-                        // Ẩn hoàn toàn sau khi transition
                         setTimeout(() => {
                             stickyProfileContainer.classList.add('hidden');
                         }, 300);
@@ -524,6 +489,142 @@
                 }
             });
         }
+
+        // === 2. LOGIC CHO LIGHTBOX (Phóng to/Thu nhỏ và Kéo) ===
+
+        let currentScale = 1;
+        let translateX = 0;
+        let translateY = 0;
+        let isDragging = false;
+        let startX = 0;
+        let startY = 0;
+        const ZOOM_STEP = 0.15; // Bước zoom (15%)
+        const MAX_SCALE = 5;    // Zoom tối đa 5 lần
+        const MIN_SCALE = 1;    // Zoom tối thiểu 1 lần
+
+        // Hàm áp dụng transform
+        function applyTransform() {
+            lightboxImage.style.transform = `translate(${translateX}px, ${translateY}px) scale(${currentScale})`;
+            // Đổi con trỏ chuột thành 'grab' khi ảnh được zoom
+            lightboxImage.style.cursor = (currentScale > 1) ? 'grab' : 'default';
+        }
+
+        // Mở Lightbox
+        document.querySelectorAll('.open-lightbox').forEach(image => {
+            image.addEventListener('click', (event) => {
+                event.stopPropagation();
+                const imageSrc = image.getAttribute('data-src');
+                lightboxImage.src = imageSrc;
+                
+                // Đặt lại trạng thái zoom/pan khi mở
+                currentScale = 1;
+                translateX = 0;
+                translateY = 0;
+                lightboxImage.style.transform = 'translate(0, 0) scale(1)';
+                lightboxImage.style.transition = 'none'; // Tắt transition để reset mượt mà
+
+                lightboxModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                
+                // Bật lại transition sau khi reset
+                setTimeout(() => {
+                    lightboxImage.style.transition = 'transform 0.2s ease-out';
+                }, 10);
+            });
+        });
+
+        // Xử lý sự kiện Cuộn chuột (Zoom)
+        lightboxModal.addEventListener('wheel', (event) => {
+            // Chỉ zoom nếu modal hiển thị và chặn cuộn trang
+            if (lightboxModal.style.display !== 'flex') return;
+            event.preventDefault();
+
+            const direction = event.deltaY < 0 ? 1 : -1; // Cuộn lên -> Zoom In (1), Cuộn xuống -> Zoom Out (-1)
+            // Tính toán scale mới, giới hạn trong khoảng [MIN_SCALE, MAX_SCALE]
+            const newScale = Math.min(Math.max(MIN_SCALE, currentScale + direction * ZOOM_STEP), MAX_SCALE);
+
+            if (newScale === currentScale) return;
+
+            currentScale = newScale;
+
+            if (currentScale === 1) {
+                // Nếu thu nhỏ về 100%, reset vị trí
+                translateX = 0;
+                translateY = 0;
+            } else {
+                // Áp dụng giới hạn kéo khi zoom (để ảnh không bị trôi quá xa rìa)
+                const imageRect = lightboxImage.getBoundingClientRect();
+                const maxPanX = (imageRect.width * currentScale - imageRect.width) / 2;
+                const maxPanY = (imageRect.height * currentScale - imageRect.height) / 2;
+                
+                translateX = Math.min(maxPanX, Math.max(-maxPanX, translateX));
+                translateY = Math.min(maxPanY, Math.max(-maxPanY, translateY));
+            }
+            
+            applyTransform();
+        }, { passive: false }); // Cần non-passive để chặn cuộn trang
+
+        // Xử lý sự kiện Nhấp chuột (Bắt đầu Kéo/Pan)
+        lightboxImage.addEventListener('mousedown', (e) => {
+            // Chỉ cho phép kéo nếu ảnh đang được zoom (currentScale > 1)
+            if (currentScale > 1) {
+                e.preventDefault(); 
+                isDragging = true;
+                // Ghi lại vị trí chuột so với vị trí dịch chuyển hiện tại
+                startX = e.clientX - translateX;
+                startY = e.clientY - translateY;
+                lightboxImage.style.cursor = 'grabbing'; // Đổi con trỏ chuột
+                lightboxImage.style.transition = 'none'; // Ngừng transition khi kéo
+            }
+        });
+
+        // Xử lý sự kiện Di chuột (Kéo/Pan)
+        document.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+
+            let newX = e.clientX - startX;
+            let newY = e.clientY - startY;
+            
+            // Giới hạn kéo
+            const imageRect = lightboxImage.getBoundingClientRect();
+            // Tính toán giới hạn kéo (nửa phần kích thước ảnh đã tăng thêm do zoom)
+            const maxPanX = (imageRect.width * currentScale - imageRect.width) / 2;
+            const maxPanY = (imageRect.height * currentScale - imageRect.height) / 2;
+            
+            // Giới hạn dịch chuyển trong phạm vi cho phép
+            translateX = Math.min(maxPanX, Math.max(-maxPanX, newX));
+            translateY = Math.min(maxPanY, Math.max(-maxPanY, newY));
+
+            applyTransform();
+        });
+
+        // Xử lý sự kiện Thả chuột (Kết thúc Kéo/Pan)
+        document.addEventListener('mouseup', () => {
+            if (isDragging) {
+                isDragging = false;
+                lightboxImage.style.cursor = 'grab';
+                lightboxImage.style.transition = 'transform 0.2s ease-out'; // Bật lại transition
+            }
+        });
+
+        // Đóng Lightbox khi click ra ngoài
+        lightboxModal.addEventListener('click', (event) => {
+            if (event.target === lightboxModal) {
+                lightboxModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                isDragging = false; // Đảm bảo trạng thái kéo được reset
+            }
+        });
+
+        // Đóng Lightbox bằng phím ESC
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && lightboxModal.style.display === 'flex') {
+                lightboxModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                isDragging = false; // Đảm bảo trạng thái kéo được reset
+            }
+        });
         
     </script>
 
