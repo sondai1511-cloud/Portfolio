@@ -11,7 +11,8 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f7f7f7; /* Nền xám nhạt */
+            background-color: #f7f7f7;
+            /* Nền xám nhạt */
             color: #333;
         }
         /* Style cho tiêu đề phần */
@@ -28,14 +29,16 @@
             height: 3px;
             bottom: 0;
             left: 0;
-            background-color: #1a1a1a; /* Đen/Xám Đậm - Accent chính */
+            background-color: #1a1a1a;
+            /* Đen/Xám Đậm - Accent chính */
             border-radius: 9999px;
         }
         /* THÊM CSS CHO HIỆU ỨNG HÌNH ẢNH HOVER */
         .project-image-container {
             overflow: hidden;
             cursor: pointer;
-            border-radius: 0.75rem; /* rounded-xl */
+            border-radius: 0.75rem;
+            /* rounded-xl */
         }
         .project-image-container img {
             transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
@@ -43,8 +46,10 @@
             filter: brightness(0.95);
         }
         .project-image-container:hover img {
-            transform: scale(1.05); /* Phóng to 5% */
-            filter: brightness(1); /* Tăng độ sáng khi hover */
+            transform: scale(1.05);
+            /* Phóng to 5% */
+            filter: brightness(1);
+            /* Tăng độ sáng khi hover */
         }
         /* Lightbox (Modal phóng to ảnh) */
         .lightbox-modal {
@@ -67,7 +72,8 @@
             box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
             /* Bổ sung để cho phép transform */
             transform-origin: center center;
-            transition: transform 0.2s ease-out; /* Transition cho zoom/pan mượt mà */
+            transition: transform 0.2s ease-out;
+            /* Transition cho zoom/pan mượt mà */
         }
         /* CSS cho ảnh đại diện sticky */
         #sticky-profile-container {
@@ -75,7 +81,8 @@
             height: 40px;
             border-radius: 9999px;
             overflow: hidden;
-            border: 2px solid #999; /* Medium Gray Border */
+            border: 2px solid #999;
+            /* Medium Gray Border */
         }
         #sticky-profile-container img {
             width: 100%;
@@ -109,8 +116,7 @@
 
             <div class="flex items-center space-x-8">
                 <!-- Sticky Profile Image -->
-                <div id="sticky-profile-container"
-                    class="hidden transition-all duration-300 opacity-0 md:block">
+                <div id="sticky-profile-container" class="hidden transition-all duration-300 opacity-0 md:block">
                     <!-- Image content will be cloned here by JavaScript -->
                 </div>
 
@@ -154,19 +160,14 @@
                         Từ những thử thách của đồ án tốt nghiệp đến những yêu cầu thực tế trong thời gian thực tập, Portfolio này là nhật ký cho quá trình phát triển, cho thấy những gì tôi học được và những sản phẩm đã làm.
                     </p>
                     <!-- Nút Tải CV -->
-                    <a href="CV Vo Son Dai.pdf"
-                        download
-                        class="inline-block bg-[#1a1a1a] hover:bg-black text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-[1.02]">
+                    <a href="CV Vo Son Dai.pdf" download class="inline-block bg-[#1a1a1a] hover:bg-black text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-[1.02]">
                         Tải CV (PDF)
                     </a>
                 </div>
                 <!-- Khu vực ảnh đại diện (được theo dõi vị trí) -->
                 <div id="profile-original-container" class="lg:w-1/3 flex justify-center">
                     <div class="w-48 h-48 bg-gray-200 rounded-full flex items-center justify-center border-4 border-[#999] overflow-hidden shadow-2xl">
-                        <img src="z7052022681864_d0efd9d7dab20b5a638a4a8b767a9b2b.jpg" 
-                            alt="Ảnh đại diện của Đại" 
-                            class="w-full h-full object-cover rounded-full" 
-                            onerror="this.onerror=null;this.src='https://placehold.co/192x192/999/ffffff?text=Ảnh+Đại+Diện';" />
+                        <img src="z7052022681864_d0efd9d7dab20b5a638a4a8b767a9b2b.jpg" alt="Ảnh đại diện của Đại" class="w-full h-full object-cover rounded-full" onerror="this.onerror=null;this.src='https://placehold.co/192x192/999/ffffff?text=Ảnh+Đại+Diện';" />
                     </div>
                 </div>
             </div>
@@ -232,8 +233,48 @@
         <!-- 3. DỰ ÁN (Projects Section) - HIỆU ỨNG FADE -->
         <section id="duan" class="fade-section mb-20 pt-16 -mt-16">
             <h3 class="text-3xl font-bold mb-8 section-title text-[#333] transition duration-300 transform hover:scale-[1.02] origin-left">Các Dự Án Trọng Tâm</h3>
-            
-            <!-- Dự án 1: Đồ án Tốt nghiệp (Ghế Gỗ Uốn Cong) -->
+
+            <!-- DỰ ÁN 1 (Đã chuyển lên trên): Kinh nghiệm Thực tập -->
+            <div class="bg-white p-6 sm:p-8 rounded-xl shadow-lg mb-10 border border-gray-100">
+                <h4 class="text-2xl font-bold text-[#1a1a1a] mb-2 transition duration-300 transform hover:scale-[1.02] origin-left">Các dự án tại Savimex</h4>
+                <p class="text-sm text-gray-500 mb-4 font-semibold">Vai trò: Thực tập sinh | Công ty: Savimex | Công cụ: AutoCAD</p>
+
+                <p class="text-gray-700 mb-6 transition duration-300 transform hover:scale-[1.02] origin-left">
+                    Với sự giúp đỡ và hướng dẫn nhiệt tình của anh, chị tại Công ty Cổ phần Hợp tác Kinh tế và Xuất nhập khẩu Savimex, tôi đã tham gia vào quá trình thiết kế, dựng mô hình 3D, lập bản vẽ kỹ thuật 2D và tạo bản vẽ hướng dẫn lắp ráp (AI) cho một số sản phẩm dựa trên hình ảnh và kích thước ban đầu của khách hàng.
+                    Được các anh chị đánh giá cao về sự nhanh nhẹn, tiếp thu tốt và cơ bản hoàn thành các yêu cầu đặt ra.
+                </p>
+
+                <!-- Khu vực Bản vẽ Kỹ thuật -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                    <!-- Hàng 1, Cột 1: Mô hình 3D Bàn làm việc -->
+                    <div class="project-image-container bg-gray-100 p-4 rounded-xl flex flex-col">
+                        <img src="Screenshot 2025-09-27 130626.png" alt="Mô hình 3D Bàn làm việc" class="w-full h-auto object-cover rounded-lg shadow-md open-lightbox" data-src="Screenshot 2025-09-27 130626.png" onerror="this.onerror=null;this.src='https://placehold.co/800x450/e0e0e0/333333?text=Mô+Hình+3D+Bàn+Làm+Việc';" />
+                        <p class="text-sm text-gray-500 mt-2 text-center">Mô hình 3D Bàn làm việc (AutoCAD)</p>
+                    </div>
+
+                    <!-- Hàng 1, Cột 2: Bản vẽ Kỹ thuật -->
+                    <div class="project-image-container bg-gray-100 p-4 rounded-xl flex flex-col">
+                        <img src="1.jpg" alt="Bản vẽ kỹ thuật chi tiết các cấu kiện" class="w-full h-auto object-cover rounded-lg shadow-md open-lightbox" data-src="1.jpg" onerror="this.onerror=null;this.src='https://placehold.co/800x450/cccccc/333333?text=Bản+Vẽ+Kỹ+Thuật';" />
+                        <p class="text-sm text-gray-500 mt-2 text-center">Bản vẽ kỹ thuật</p>
+                    </div>
+
+                    <!-- Hàng 2, Cột 1: Mô hình 3D Giường ngủ -->
+                    <div class="project-image-container bg-gray-100 p-4 rounded-xl flex flex-col">
+                        <img src="Giuong.png" alt="Mô hình 3D Giường ngủ" class="w-full h-auto object-cover rounded-lg shadow-md open-lightbox" data-src="Giuong.png" onerror="this.onerror=null;this.src='https://placehold.co/800x450/e0e0e0/333333?text=Mô+Hình+3D+Giường+ngủ';" />
+                        <p class="text-sm text-gray-500 mt-2 text-center">Mô hình 3D Giường ngủ</p>
+                    </div>
+
+                    <!-- Hàng 2, Cột 2: Bản vẽ hướng dẫn lắp ráp (AI) -->
+                    <div class="project-image-container bg-gray-100 p-4 rounded-xl flex flex-col">
+                        <img src="AI.jpg" alt="Bản vẽ hướng dẫn lắp ráp (AI)" class="w-full h-auto object-cover rounded-lg shadow-md open-lightbox" data-src="AI.jpg" onerror="this.onerror=null;this.src='https://placehold.co/800x450/cccccc/333333?text=Bản+vẽ+hướng+dẫn+lắp+ráp+(AI)';" />
+                        <p class="text-sm text-gray-500 mt-2 text-center">Bản vẽ hướng dẫn lắp ráp (AI)</p>
+                    </div>
+                </div>
+            </div>
+            <!-- HẾT DỰ ÁN 1 (SAVIMEX) -->
+
+            <!-- DỰ ÁN 2 (Đã chuyển xuống dưới): Đồ án Tốt nghiệp -->
             <div class="bg-white p-6 sm:p-8 rounded-xl shadow-lg mb-10 border border-gray-100">
                 <h4 class="text-2xl font-bold text-[#1a1a1a] mb-2 transition duration-300 transform hover:scale-[1.02] origin-left">Đồ án Tốt nghiệp: Thiết Kế Và Chế Tạo Ghế Thư Giãn Sử Dụng Gỗ Uốn Cong</h4>
                 <p class="text-sm text-gray-500 mb-6 font-semibold">Vai trò: Thiết kế, lập bản vẽ | Công cụ: Inventor</p>
@@ -242,18 +283,14 @@
                     Đồ án tập trung vào việc nghiên cứu và ứng dụng kỹ thuật uốn cong gỗ vào chế tạo ghế thư giãn.
                     Được phân công phụ trách phần thiết kế và bản vẽ, từ phác thảo ban đầu, tính toán kích thước đến dựng mô hình 3D, lập bản vẽ chi tiết, bản vẽ AI, tất cả đều được tôi thực hiện bằng Inventor và điều chỉnh bản vẽ sau mỗi lần làm mẫu, đảm bảo tối ưu quy trình chế tạo.
                 </p>
-                
+
                 <!-- Khu vực Bản vẽ Kỹ thuật & Mô hình 3D -->
                 <div class="flex flex-col gap-6 mb-6">
                     <!-- Hàng 1: Ảnh lớn - Bản vẽ 3 hình chiếu -->
                     <div class="project-image-container bg-gray-100 p-4 rounded-xl">
                         <!-- ĐÃ BỎ HIỆU ỨNG HOVER -->
                         <h5 class="font-semibold text-lg mb-2 text-[#1a1a1a]">Bản Vẽ Kỹ Thuật</h5>
-                        <img src="TAP BAN VE - KNG02 - THIẾT KẾ VÀ CHẾ TẠO GHẾ THƯ GIÃN SỬ DỤNG GỖ UỐN CONG-hình ảnh-2.jpg" 
-                            alt="Bản vẽ 3 hình chiếu của ghế gỗ uốn cong" 
-                            class="w-full h-auto object-cover rounded-lg shadow-md open-lightbox" 
-                            data-src="TAP BAN VE - KNG02 - THIẾT KẾ VÀ CHẾ TẠO GHẾ THƯ GIÃN SỬ DỤNG GỖ UỐN CONG-hình ảnh-2.jpg" 
-                            onerror="this.onerror=null;this.src='https://placehold.co/1000x500/e0e0e0/333333?text=Bản+Vẽ+Kỹ+Thuật+3+Hình+Chiếu';" />
+                        <img src="TAP BAN VE - KNG02 - THIẾT KẾ VÀ CHẾ TẠO GHẾ THƯ GIÃN SỬ DỤNG GỖ UỐN CONG-hình ảnh-2.jpg" alt="Bản vẽ 3 hình chiếu của ghế gỗ uốn cong" class="w-full h-auto object-cover rounded-lg shadow-md open-lightbox" data-src="TAP BAN VE - KNG02 - THIẾT KẾ VÀ CHẾ TẠO GHẾ THƯ GIÃN SỬ DỤNG GỖ UỐN CONG-hình ảnh-2.jpg" onerror="this.onerror=null;this.src='https://placehold.co/1000x500/e0e0e0/333333?text=Bản+Vẽ+Kỹ+Thuật+3+Hình+Chiếu';" />
                         <p class="text-sm text-gray-500 mt-2">Bản vẽ chi tiết các hình chiếu</p>
                     </div>
 
@@ -263,22 +300,14 @@
                         <div class="project-image-container bg-gray-100 p-4 rounded-xl flex flex-col">
                             <!-- ĐÃ BỎ HIỆU ỨNG HOVER -->
                             <h5 class="font-semibold text-lg mb-2 text-[#1a1a1a]">Mô Hình 3D (Inventor)</h5>
-                            <img src="Screenshot 2025-09-27 124647.png" 
-                                alt="Mô hình 3D ghế thư giãn trong Inventor" 
-                                class="w-full h-auto object-cover rounded-lg shadow-md aspect-video object-contain open-lightbox" 
-                                data-src="Screenshot 2025-09-27 124647.png" 
-                                onerror="this.onerror=null;this.src='https://placehold.co/400x250/cccccc/333333?text=Mô+Hình+3D+Inventor';" />
+                            <img src="Screenshot 2025-09-27 124647.png" alt="Mô hình 3D ghế thư giãn trong Inventor" class="w-full h-auto object-cover rounded-lg shadow-md aspect-video object-contain open-lightbox" data-src="Screenshot 2025-09-27 124647.png" onerror="this.onerror=null;this.src='https://placehold.co/400x250/cccccc/333333?text=Mô+Hình+3D+Inventor';" />
                             <p class="text-sm text-gray-500 mt-2">Mô hình 3D được dựng trong Inventor</p>
                         </div>
                         <!-- Ảnh 2: Sản phẩm đã chế tạo -->
                         <div class="project-image-container bg-gray-100 p-4 rounded-xl flex flex-col">
                             <!-- ĐÃ BỎ HIỆU ỨNG HOVER -->
                             <h5 class="font-semibold text-lg mb-2 text-[#1a1a1a]">AI</h5>
-                            <img src="Ghe Thu Gian.jpg" 
-                                alt="Hình ảnh sản phẩm ghế thư giãn đã hoàn thành" 
-                                class="w-full h-auto object-cover rounded-lg shadow-md aspect-video object-contain open-lightbox" 
-                                data-src="Ghe Thu Gian.jpg" 
-                                onerror="this.onerror=null;this.src='https://placehold.co/400x250/cccccc/333333?text=Sản+Phẩm+Thực+Tế';" />
+                            <img src="Ghe Thu Gian.jpg" alt="Hình ảnh sản phẩm ghế thư giãn đã hoàn thành" class="w-full h-auto object-cover rounded-lg shadow-md aspect-video object-contain open-lightbox" data-src="Ghe Thu Gian.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x250/cccccc/333333?text=Sản+Phẩm+Thực+Tế';" />
                             <p class="text-sm text-gray-500 mt-2">Bản vẽ hướng dẫn lắp ráp</p>
                         </div>
                     </div>
@@ -292,9 +321,7 @@
                     </p>
 
                     <!-- Nút Tải bản vẽ đầy đủ (PDF) -->
-                    <a href="TAP BAN VE - KNG02 - THIẾT KẾ VÀ CHẾ TẠO GHẾ THƯ GIÃN SỬ DỤNG GỖ UỐN CONG.pdf"
-                        download
-                        class="inline-flex items-center justify-center bg-gray-200 hover:bg-[#1a1a1a] hover:text-white text-gray-800 font-medium py-2 px-4 rounded-full transition duration-300 flex-shrink-0 order-2 sm:order-2 hover:scale-[1.02]">
+                    <a href="TAP BAN VE - KNG02 - THIẾT KẾ VÀ CHẾ TẠO GHẾ THƯ GIÃN SỬ DỤNG GỖ UỐN CONG.pdf" download class="inline-flex items-center justify-center bg-gray-200 hover:bg-[#1a1a1a] hover:text-white text-gray-800 font-medium py-2 px-4 rounded-full transition duration-300 flex-shrink-0 order-2 sm:order-2 hover:scale-[1.02]">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                         </svg>
@@ -302,61 +329,8 @@
                     </a>
                 </div>
             </div>
+            <!-- HẾT DỰ ÁN 2 (ĐỒ ÁN TỐT NGHIỆP) -->
 
-            <!-- Dự án 2: Kinh nghiệm Thực tập (ĐÃ KHÔI PHỤC TIÊU ĐỀ) -->
-            <div class="bg-white p-6 sm:p-8 rounded-xl shadow-lg border border-gray-100">
-                <h4 class="text-2xl font-bold text-[#1a1a1a] mb-2 transition duration-300 transform hover:scale-[1.02] origin-left">Các dự án tại Savimex</h4>
-                <p class="text-sm text-gray-500 mb-4 font-semibold">Vai trò: Thực tập sinh | Công ty: Savimex | Công cụ: AutoCAD</p>
-
-                <p class="text-gray-700 mb-6 transition duration-300 transform hover:scale-[1.02] origin-left">
-                    Với sự giúp đỡ và hướng dẫn nhiệt tình của anh, chị tại Công ty Cổ phần Hợp tác Kinh tế và Xuất nhập khẩu Savimex, tôi đã tham gia vào quá trình thiết kế, dựng mô hình 3D, lập bản vẽ kỹ thuật 2D và tạo bản vẽ hướng dẫn lắp ráp (AI) cho một số sản phẩm dựa trên hình ảnh và kích thước ban đầu của khách hàng.
-                    Được các anh chị đánh giá cao về sự nhanh nhẹn, tiếp thu tốt và cơ bản hoàn thành các yêu cầu đặt ra.
-                </p>
-                
-                <!-- Khu vực Bản vẽ Kỹ thuật -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    
-                    <!-- Hàng 1, Cột 1: Mô hình 3D Bàn làm việc -->
-                    <div class="project-image-container bg-gray-100 p-4 rounded-xl flex flex-col">
-                        <img src="Screenshot 2025-09-27 130626.png"
-                            alt="Mô hình 3D Bàn làm việc"
-                            class="w-full h-auto object-cover rounded-lg shadow-md open-lightbox"
-                            data-src="Screenshot 2025-09-27 130626.png"
-                            onerror="this.onerror=null;this.src='https://placehold.co/800x450/e0e0e0/333333?text=Mô+Hình+3D+Bàn+Làm+Việc';" />
-                        <p class="text-sm text-gray-500 mt-2 text-center">Mô hình 3D Bàn làm việc (AutoCAD)</p>
-                    </div>
-                    
-                    <!-- Hàng 1, Cột 2: Bản vẽ Kỹ thuật -->
-                    <div class="project-image-container bg-gray-100 p-4 rounded-xl flex flex-col">
-                        <img src="1.jpg"
-                            alt="Bản vẽ kỹ thuật chi tiết các cấu kiện"
-                            class="w-full h-auto object-cover rounded-lg shadow-md open-lightbox"
-                            data-src="1.jpg"
-                            onerror="this.onerror=null;this.src='https://placehold.co/800x450/cccccc/333333?text=Bản+Vẽ+Kỹ+Thuật';" />
-                        <p class="text-sm text-gray-500 mt-2 text-center">Bản vẽ kỹ thuật</p>
-                    </div>
-
-                    <!-- Hàng 2, Cột 1: Mô hình 3D Giường ngủ -->
-                    <div class="project-image-container bg-gray-100 p-4 rounded-xl flex flex-col">
-                        <img src="Giuong.png"
-                            alt="Mô hình 3D Giường ngủ"
-                            class="w-full h-auto object-cover rounded-lg shadow-md open-lightbox"
-                            data-src="Giuong.png"
-                            onerror="this.onerror=null;this.src='https://placehold.co/800x450/e0e0e0/333333?text=Mô+Hình+3D+Giường+ngủ';" />
-                        <p class="text-sm text-gray-500 mt-2 text-center">Mô hình 3D Giường ngủ</p>
-                    </div>
-
-                    <!-- Hàng 2, Cột 2: Bản vẽ hướng dẫn lắp ráp (AI) -->
-                    <div class="project-image-container bg-gray-100 p-4 rounded-xl flex flex-col">
-                        <img src="AI.jpg"
-                            alt="Bản vẽ hướng dẫn lắp ráp (AI)"
-                            class="w-full h-auto object-cover rounded-lg shadow-md open-lightbox"
-                            data-src="AI.jpg"
-                            onerror="this.onerror=null;this.src='https://placehold.co/800x450/cccccc/333333?text=Bản+vẽ+hướng+dẫn+lắp+ráp+(AI)';" />
-                        <p class="text-sm text-gray-500 mt-2 text-center">Bản vẽ hướng dẫn lắp ráp (AI)</p>
-                    </div>
-                </div>
-            </div>
         </section>
 
         <!-- 4. LIÊN HỆ (Contact Section) - HIỆU ỨNG FADE -->
@@ -369,17 +343,25 @@
                     <div class="space-y-4">
                         <p class="flex items-center text-gray-700 transition duration-300 transform hover:scale-[1.02] origin-left">
                             <!-- Icon Email -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-[#444] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26c.77.51 1.63.74 2.47.74s1.7-.23 2.47-.74L21 8" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 8V6a2 2 0 00-2-2H5a2 2 0 00-2 2v2M21 8v10a2 2 0 01-2 2H5a2 2 0 01-2-2V8" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-[#444] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26c.77.51 1.63.74 2.47.74s1.7-.23 2.47-.74L21 8" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 8V6a2 2 0 00-2-2H5a2 2 0 00-2 2v2M21 8v10a2 2 0 01-2 2H5a2 2 0 01-2-2V8" />
+                            </svg>
                             Email: <a href="mailto:sondai1511@gmail.com" class="hover:text-[#666] ml-1">sondai1511@gmail.com</a>
                         </p>
                         <p class="flex items-center text-gray-700 transition duration-300 transform hover:scale-[1.02] origin-left">
                             <!-- Icon Phone -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-[#444] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18v-6m0 0V8" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-[#444] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18v-6m0 0V8" />
+                            </svg>
                             Điện thoại: 0901097761
                         </p>
                         <p class="flex items-start text-gray-700 transition duration-300 transform hover:scale-[1.02] origin-left">
                             <!-- Icon Location -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 mt-1 text-[#444] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9A1.998 1.998 0 0110 19V5a2 2 0 012-2h6a2 2 0 012 2v10a2 2 0 01-2 2h-4z" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 mt-1 text-[#444] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9A1.998 1.998 0 0110 19V5a2 2 0 012-2h6a2 2 0 012 2v10a2 2 0 01-2 2h-4z" />
+                            </svg>
                             Địa chỉ: Phường Phú Định, TP.HCM
                         </p>
                     </div>
@@ -413,13 +395,12 @@
         const lightboxImage = document.getElementById('lightbox-image');
 
         // === 1. LOGIC CHO MOBILE MENU VÀ HIỆU ỨNG CUỘN ===
-        
+
         // Chuyển đổi trạng thái hiển thị của mobile menu
         function toggleMenu() {
             mobileMenu.classList.toggle('hidden');
         }
         menuButton.addEventListener('click', toggleMenu);
-
         // Đóng mobile menu khi click vào một liên kết
         document.querySelectorAll('#mobile-menu a').forEach(link => {
             link.addEventListener('click', () => {
@@ -448,7 +429,6 @@
             rootMargin: '0px',
             threshold: 0.1 // Bắt đầu hiển thị khi 10% phần tử xuất hiện
         });
-        
         // Bắt đầu quan sát tất cả các section (trừ 'gioithieu' đã có sẵn is-visible)
         fadeSections.forEach(section => {
             if (!section.classList.contains('is-visible')) {
@@ -467,10 +447,10 @@
 
             window.addEventListener('scroll', () => {
                 const rect = profileOriginalContainer.getBoundingClientRect();
-                const headerHeight = document.querySelector('header').offsetHeight; 
-                
+                const headerHeight = document.querySelector('header').offsetHeight;
+
                 // Kiểm tra xem ảnh đại diện gốc đã cuộn vượt qua header hay chưa
-                const imageIsAboveHeader = rect.bottom < headerHeight; 
+                const imageIsAboveHeader = rect.bottom < headerHeight;
 
                 if (imageIsAboveHeader) {
                     if (stickyProfileContainer.classList.contains('opacity-0')) {
@@ -484,12 +464,12 @@
                         // Ẩn hoàn toàn sau khi animation kết thúc
                         setTimeout(() => {
                             stickyProfileContainer.classList.add('hidden');
-                        }, 300); 
+                        }, 300);
                     }
                 }
             });
         }
-        
+
         // === 2. LOGIC CHO LIGHTBOX (Phóng to/Thu nhỏ và Kéo) ===
         let currentScale = 1;
         let translateX = 0;
@@ -498,8 +478,8 @@
         let startX = 0;
         let startY = 0;
         const ZOOM_STEP = 0.15; // Bước zoom (15%)
-        const MAX_SCALE = 5;    // Zoom tối đa 5 lần
-        const MIN_SCALE = 1;    // Zoom tối thiểu 1 lần
+        const MAX_SCALE = 5; // Zoom tối đa 5 lần
+        const MIN_SCALE = 1; // Zoom tối thiểu 1 lần
 
         // Hàm áp dụng transform
         function applyTransform() {
@@ -539,7 +519,7 @@
 
             const direction = event.deltaY < 0 ? 1 : -1;
             // Cuộn lên -> Zoom In (1), Cuộn xuống -> Zoom Out (-1)
-            
+
             // Tính toán scale mới, giới hạn trong khoảng [MIN_SCALE, MAX_SCALE]
             const newScale = Math.min(Math.max(MIN_SCALE, currentScale + direction * ZOOM_STEP), MAX_SCALE);
             if (newScale === currentScale) return;
@@ -552,7 +532,6 @@
                 translateY = 0;
             } else {
                 // Điều chỉnh vị trí dịch chuyển để tránh ảnh trôi quá xa khi zoom
-                // Cần tính toán lại giới hạn Pan dựa trên kích thước thực của ảnh trong modal
                 const imageRect = lightboxImage.getBoundingClientRect();
                 // Giới hạn kéo là nửa kích thước ảnh bị che khuất do zoom
                 const maxPanX = (imageRect.width * currentScale - imageRect.width) / (2 * currentScale);
@@ -563,7 +542,9 @@
             }
 
             applyTransform();
-        }, { passive: false }); // Cần non-passive để chặn cuộn trang
+        }, {
+            passive: false
+        }); // Cần non-passive để chặn cuộn trang
 
         // Xử lý sự kiện Nhấp chuột (Bắt đầu Kéo/Pan)
         lightboxImage.addEventListener('mousedown', (e) => {
@@ -583,7 +564,7 @@
         document.addEventListener('mousemove', (e) => {
             if (!isDragging) return;
             e.preventDefault();
-            
+
             let newX = e.clientX - startX;
             let newY = e.clientY - startY;
 
@@ -629,12 +610,6 @@
                 isDragging = false; // Đảm bảo trạng thái kéo được reset
             }
         });
-
     </script>
 </body>
 </html>
-
-
-
-
-
